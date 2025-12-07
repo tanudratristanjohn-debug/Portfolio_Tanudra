@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Tristan John Tanudra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* REUSING THE CORE THEME */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body {
+            min-height: 100vh;
+            background-image: url("{% static 'images/bg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 50px 20px;
+        }
+        body::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 20, 0.85); z-index: -1; position: fixed;
+        }
+        
+        /* CONTAINER */
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        .header { text-align: center; margin-bottom: 50px; animation: fadeIn 1s ease-out; }
+        .header h1 { font-size: 3rem; background: linear-gradient(to right, #fff, #00d2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* PROJECT GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* GLASS CARD FOR PROJECTS */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2); border-color: #00d2ff; }
+        
+        .card h3 { color: #00d2ff; margin-bottom: 15px; font-size: 1.5rem; }
+        .card p { color: #ccc; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .badge { background: rgba(0, 210, 255, 0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.7rem; color: #00d2ff; border: 1px solid rgba(0, 210, 255, 0.3); }
+        
+        .btn-view { display: inline-block; padding: 10px 25px; background: white; color: #111; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.8rem; transition: 0.3s; }
+        .btn-view:hover { background: #00d2ff; color: white; }
+
+        .btn-back { display: block; width: fit-content; margin: 50px auto 0; padding: 12px 30px; border: 2px solid rgba(255, 255, 255, 0.3); color: white; text-decoration: none; border-radius: 50px; transition: 0.3s; }
+        .btn-back:hover { background: rgba(255, 255, 255, 0.1); border-color: white; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Featured Projects</h1>
+            <p>A collection of my academic and personal development work.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>STI Student Info System</h3>
+                <p>A comprehensive database management system designed to track student grades, schedules, and profile information efficiently.</p>
+                <div class="tech-stack">
+                    <span class="badge">Python</span>
+                    <span class="badge">Django</span>
+                    <span class="badge">SQLite</span>
+                </div>
+                <a href="#" class="btn-view">View Code</a>
+            </div>
+
+            <div class="card">
+                <h3>E-Commerce Web App</h3>
+                <p>Full-stack online store featuring cart functionality, user authentication, and payment gateway integration simulation.</p>
+                <div class="tech-stack">
+                    <span class="badge">HTML/CSS</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">PHP</span>
+                </div>
+                <a href="#" class="btn-view">View Code</a>
+            </div>
+
+            <div class="card">
+                <h3>Library Management</h3>
+                <p>Automated system for borrowing and returning books with penalty calculation and QR code scanning features.</p>
+                <div class="tech-stack">
+                    <span class="badge">VB.NET</span>
+                    <span class="badge">MySQL</span>
+                </div>
+                <a href="#" class="btn-view">View Code</a>
+            </div>
+        </div>
+
+        <a href="{% url 'home' %}" class="btn-back">← Back to Home</a>
+    </div>
+</body>
+</html>
